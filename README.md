@@ -1,2 +1,2 @@
 # SearchLight
-Review🔍 and protect 🛡️ your cloud☁️ infrastructure 
+Review🔍 and protect 🛡️ your cloud☁️ infrastructure
