@@ -44,7 +44,7 @@ with open(tf_generated_config, 'r') as file:
 
 
 prompt = f'''
-Identify OWASP concern in this terraform and generate a new Terraform code that addresses the concern:
+Identify OWASP concerns in this terraform and generate a new Terraform code that addresses the concerns:
 
 {file_content}
 '''
