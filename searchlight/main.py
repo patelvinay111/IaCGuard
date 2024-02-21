@@ -1,5 +1,6 @@
 import os
 import google.generativeai as genai
+import tf_import_gen
 
 genai.configure(api_key=os.environ.get("GEMINI_API_KEY"))
 
@@ -33,6 +34,8 @@ safety_settings = [
 model = genai.GenerativeModel(model_name="gemini-1.0-pro",
                               generation_config=generation_config,
                               safety_settings=safety_settings)
+
+tf_import_gen.import_gen("sample/input.json")
 
 prompt = '''
 Identify OWASP concern in this terraform:
