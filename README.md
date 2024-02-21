@@ -27,3 +27,4 @@ python searchlight.py <file_path of the list file from step 1>
 ```
 - **Step 3:** Review the generated suggestions and make the changes to make the resources secure.
   - Note: Be careful not to have any unintended consequences making changes to resources in production environment.
+  - **Step 4:** Rerun the resource through SearchLight to confirm the vulnerability is fixed
