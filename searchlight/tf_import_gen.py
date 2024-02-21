@@ -30,3 +30,4 @@ def import_gen(file_path):
                      '}\n\n'
                      )
                 file.write(s)
+    return output_path
