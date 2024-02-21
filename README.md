@@ -11,12 +11,12 @@ Use the new feature released from Terraform 1.5 (June 2023) - [config-driven imp
     ```
     [
       {
-        type: "aws_internet_gateway",
-        id: "igw-9jodcoo8ncei7"
+        "type": "aws_internet_gateway",
+        "id": "igw-9jodcoo8ncei7"
       },
       {
-        type: "aws_instance",
-        id: "i-9h8u6efbu8786"
+        "type": "aws_instance",
+        "id": "i-9h8u6efbu8786"
       },
       // ... (other resources)
     ]
