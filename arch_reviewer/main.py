@@ -36,4 +36,14 @@ response = client.chat.completions.create(
     max_tokens=1000
 )
 
-print(response.choices[0].message.content)
+output_path = image_path.rsplit('.', 1)[0] + "_security_report.md"
+report_content=response.choices[0].message.content
+
+start_marker = "```markdown"
+end_markers = "```"
+start_pos = report_content.index(start_marker) + len(start_marker)
+end_pos = report_content.index(end_markers, start_pos)
+markdown_table = report_content[start_pos:end_pos]
+
+with open(output_path, 'w') as file:
+    file.write(markdown_table)
