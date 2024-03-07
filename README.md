@@ -1,6 +1,11 @@
 # SearchLight
 Review 🔍and protect 🛡️your cloud ☁️infrastructure
 
+## New Feature Announcement!
+Arch_reviewer generates Security analysis reports using AI (Powered by OpenAI Vision model)
+#### Sample
+![arch_reviewer.png](arch_reviewer.png)
+
 ## Idea
 Use the new feature released from Terraform 1.5 (June 2023) - [config-driven import](https://www.hashicorp.com/blog/terraform-1-5-brings-config-driven-import-and-checks) to generate the Terraform config of the targeted existing infra and use Open AI API to review and suggest any changes that should be made to make it secure.
 
