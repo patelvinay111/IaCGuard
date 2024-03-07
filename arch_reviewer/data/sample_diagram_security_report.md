@@ -1,15 +1,14 @@
 
-| Component          | Threat                                       | Likelihood | Mitigation Strategy                                                                            |
-|--------------------|----------------------------------------------|------------|-------------------------------------------------------------------------------------------------|
-| AWS S3 (Data Source)   | Unauthorized Access                          | Medium     | Implement IAM policies; Enable S3 Bucket encryption; Use S3 access logging; Enable MFA Delete.   |
-| AWS S3 (Data Source)   | Data Leakage                                 | Medium     | Enable S3 Bucket encryption; Use HTTPS for data in transit; ACLs and Policy controls.            |
-| Amazon EventBridge | Misconfiguration leading to data loss         | Low        | Strictly manage IAM roles and policies; Regularly audit EventBridge rules.                       |
-| Amazon EventBridge | Injection attacks through events             | Medium     | Validate event patterns; Sanitize and validate input data.                                       |
-| Amazon SNS         | Unauthorized Access/Interception of Messages | High       | Use server-side encryption (SSE); Implement access control policies.                            |
-| Amazon SNS         | DoS attacks by flooding topics with messages | Medium     | Configure throttling; Enable dead letter queues to manage undeliverable messages.                |
-| Amazon SQS         | Unauthorized deletion or modification of messages | Medium  | IAM policies to restrict access; Enable SSE; Utilize SQS Queue policy.                           |
-| Amazon SQS         | Message replay attacks                        | Low        | Implement unique message deduplication IDs; Enable API request authentication.                   |
-| AWS Lambda         | Execution of malicious code                   | High       | Use least privilege IAM roles; Enable Lambda function concurrency controls.                     |
-| AWS Lambda         | Vulnerable dependencies                       | High       | Regularly update Lambda functions with secure dependencies; Perform static code analysis.        |
-| AWS S3 (Data Target)   | Data tampering                                 | Medium     | Enable versioning; Implement cross-region replication for redundancy; Access Controls.           |
-| AWS S3 (Data Target)   | Insecure data at rest                         | Low        | Enable S3 Server-Side Encryption (SSE); Use encryption with customer-managed keys where possible.|
+| Component      | Threat                                  | Likelihood | Mitigation Strategy                                                                      |
+|----------------|-----------------------------------------|------------|------------------------------------------------------------------------------------------|
+| AWS S3 (Source)| Unauthorized access                     | Medium     | Implement a strict IAM policy, enable MFA, and use S3 bucket policies for fine-grained ACL|
+| AWS S3 (Source)| Data leakage                            | Medium     | Use server-side encryption, access logging, and regularly review permissions              |
+| Eventbridge    | Misconfiguration of event rules         | Low        | Regularly audit and monitor Eventbridge rules and settings                                |
+| Amazon SNS     | Exposure of sensitive data              | Low        | Encrypt messages using AWS KMS, ensure HTTPS endpoints for subscribers                    |
+| Amazon SNS     | Misdelivery of messages                 | Low        | Implement dead-letter queues and monitor delivery status of messages                     |
+| Amazon SQS     | Message tampering                       | Low        | Enable SQS encryption at rest, enforce HTTPS for in-transit messages                      |
+| Amazon SQS     | Overflow of messages                    | Medium     | Monitor queue size, set appropriate retention policies, and use scaling procedures        |
+| AWS Lambda     | Execution of malicious code             | Medium     | Regularly update function code, review execution roles and limit their permissions        |
+| AWS Lambda     | Denial of Service (DoS)                 | Low        | Set up Lambda concurrency controls and apply appropriate scaling                          |
+| AWS S3 (Target)| Incomplete data transmission            | Low        | Implement data integrity checks and retry mechanisms                                     |
+| AWS S3 (Target)| Accidental data overwrites/deletion     | Medium     | Enable versioning, MFA Delete feature, and cross-region replication for backup            |
