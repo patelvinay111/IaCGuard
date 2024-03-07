@@ -22,7 +22,8 @@ response = client.chat.completions.create(
             "role": "user",
             "content": [
                 {"type": "text",
-                 "text": "Consider a datapipeline architecture in this picture and generate a threat modeling report"},
+                 "text": "Consider the architecture diagram in this picture and generate a threat modeling report as "
+                         "a markdown table with 'Component','Threat','Likelihood','Mitigation Strategy' columns"},
                 {
                     "type": "image_url",
                     "image_url": {
@@ -32,7 +33,7 @@ response = client.chat.completions.create(
             ],
         }
     ],
-    max_tokens=300,
+    max_tokens=1000
 )
 
 print(response.choices[0].message.content)
